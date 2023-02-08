@@ -3,9 +3,11 @@ import { LightTheme, DarkTheme, GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
+import {Routes} from "react-router-dom";
 
 import Note from "./Note";
 import LinkToNote from "./LinkToNote";
+import { Route } from "react-router-dom";
 
 function App() {
   const [notes, setNotes] = useState(null);
@@ -36,7 +38,10 @@ function App() {
           )}
         </Side>
         <Main>
-          <Note />
+          <Routes>
+            <Route path="/" element={<div>Sélectionner note pour l'éditer</div>}/>
+            <Route path="/notes/:id" element={<Note />}></Route>
+          </Routes>
         </Main>
       </ThemeProvider>
     </>
