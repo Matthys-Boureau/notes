@@ -1,14 +1,21 @@
 
 import logo from './logo.svg';
 import { Side, Main } from "./App.Style";
-import { GlobalStyle } from "./GlobalStyle";
+import { LightTheme,DarkTheme, GlobalStyle } from "./GlobalStyle";
+import Note from "./Note";
+import { ThemeProvider } from 'styled-components';
+
 
 function App() {
   return (
     <>
+    <ThemeProvider theme={DarkTheme}>
       <GlobalStyle />
       <Side> Barre latéral</Side>
-      <Main> Contenue Principale</Main>
+      <Main> 
+        <Note />
+      </Main>
+    </ThemeProvider>
     </>
   );
 }

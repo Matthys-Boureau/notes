@@ -7,8 +7,8 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   margin: 0;
-  color: white;
-  background-color: #2c3338;
+  color: ${({theme}) => theme.textColor};
+  background-color: ${({theme}) => theme.asideBackgroundColor};
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -16,3 +16,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 `;
+
+
+export const DarkTheme = {
+  mainBackgroundColor : "#2c3338",
+  asideBackgroundColor : "#1d2327",
+  textColor : "white",
+}
+
+export const LightTheme = {
+  mainBackgroundColor : "#d3ccc7",
+  asideBackgroundColor : "#e2dcd8",
+  textColor : "black",
+}
