@@ -29,7 +29,7 @@ function App() {
             <NoteList>
               {notes.map((note) => (
                 <li key={note.id}>
-                  <LinkToNote title={note.title} />
+                  <LinkToNote id={note.id} title={note.title} />
                 </li>
               ))}
             </NoteList>
