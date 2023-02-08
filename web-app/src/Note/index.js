@@ -4,7 +4,7 @@ const Note = () => {
   return(
     <Form>
       <Title type='text' />
-      <Content>Contenu</Content>
+      <Content readOnly value={"contenue"}></Content>
       <button>Enregistrer</button>
     </Form>
   );
