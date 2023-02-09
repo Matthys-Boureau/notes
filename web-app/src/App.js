@@ -4,8 +4,9 @@ import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
-import {AiOutlinePlusSquare} from "react-icons/ai";
-import {AddNote} from "./iconAndLabel/inconAndLabel.styled";
+import {GrAddCircle} from "react-icons/gr";
+import {AddNote, DarkLightMode, FLEX} from "./iconAndLabel/inconAndLabel.styled";
+import {MdLightMode} from "react-icons/md"
 
 
 import Note from "./Note";
@@ -50,9 +51,18 @@ function App() {
     setNotes(notes.map(_note => (_note.id === noteToUpdate.id ? noteToUpdate : _note)));
   }
 
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }
+
   return (
     <>
-      <ThemeProvider theme={LightTheme}>
+      <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
         <GlobalStyle />
         <Side>
           {isLoading && 
@@ -60,11 +70,16 @@ function App() {
           <Loader />
           </LoaderWrapper>
           }
-          <AddNote onClick={(event) => {
-            newNote();
-          }}>
-            <AiOutlinePlusSquare />
-          </AddNote>
+          <FLEX>
+            <DarkLightMode onClick={toggleTheme}>
+              <MdLightMode />
+            </DarkLightMode>
+            <AddNote onClick={(event) => {
+              newNote();
+            }}>
+              <GrAddCircle />
+            </AddNote>
+          </FLEX>
           {notes && (
             <NoteList>
               {notes.map((note) => (

@@ -4,11 +4,12 @@ import { MdDarkMode } from "react-icons/md";
 export const GlobalStyle = createGlobalStyle`
 *{
   box-sizing: border-box;
+  outline: none;
+  border: none;
 }
 
 *:focus{
   outline: none;
-  box-shadow: inset 0px 0px 0px 2px ${({theme}) => theme.textColor};
 }
 
 body {
