@@ -53,7 +53,8 @@ height: 70px;
 width: 100%;
 display: flex;
 align-items: center;
-border-top: 3px solid ${({theme}) => theme.asideBackgroundColor};
+justify-content: space-between;
+/* border-top: 3px solid ${({theme}) => theme.asideBackgroundColor}; */
 gap: 8px;
 `;
 
@@ -88,4 +89,20 @@ export const Loader = styled(FiLoader)`
 
 export const ErrorMessage = styled.div`
   color: ${({theme}) => theme.ErrorColor};
+`;
+
+export const DeleteButton = styled.button`
+width: 100px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: bold;
+background-color: ${({theme})=> theme.DeleteButtonBackgroundColor};
+color: ${({theme}) => theme.textColor};
+padding: ${INPUT_PADDING}px;
+margin: 20px;
+border: ${({theme}) => theme.DeleteButtonBorderColor};
+border-radius: 15px;
+font-size: 20px;
 `;

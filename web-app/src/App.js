@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
+import {} from "react-icons";
 
 import Note from "./Note";
 import LinkToNote from "./LinkToNote";
@@ -41,6 +42,7 @@ function App() {
           <Loader />
           </LoaderWrapper>
           }
+
           {notes && (
             <NoteList>
               {notes.map((note) => (

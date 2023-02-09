@@ -4,6 +4,7 @@ import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage }
 import {TbChecks} from "react-icons/tb"
 import { IconAndLabel } from "../iconAndLabel/inconAndLabel.styled";
 import {FullHeightAndWidthCentered} from "../App.Style";
+import { DeleteButton } from "./Note.styled";
 
 const Note = ({onSave}) => {
   const { id } = useParams();
@@ -29,6 +30,9 @@ const Note = ({onSave}) => {
 
   const saveNote = async () => {
     setGetStatus("LOADING")
+    if(note.title === ""){
+      note.title = `Note ${note.id}`
+    }
     const response = await fetch(`/notes/${note.id}`, {
       method: "PUT",
       body: JSON.stringify(note),
@@ -44,6 +48,15 @@ const Note = ({onSave}) => {
       setGetStatus("ERROR");
     }
   };
+
+  const deleteNote = async () => {
+    const response = await fetch(`/notes/${note.id}`,{
+      method: "DELETE",
+      headers : {
+        "Content-Type" : "application/json"
+      }
+    });
+  }
 
   if(getStatus === "LOADING") {
     return(
@@ -102,7 +115,16 @@ const Note = ({onSave}) => {
         ) : getStatus === "LOADING" ? (
           <Loader/>
         ) : null}
+        <DeleteButton
+        onClick={(event) =>{
+          deleteNote();
+        }}
+        >
+          DELETE
+        </DeleteButton>
       </SaveAndStatus>
+
+      
     </Form>
   );
 };

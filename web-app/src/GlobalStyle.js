@@ -31,6 +31,8 @@ export const DarkTheme = {
   SaveButtonBackgroundColor: "rgb(0,150,0, 0.5)",
   SaveButtonBorderColor: "rgb(0,150,0, 0.5)",
   ErrorColor : "red",
+  DeleteButtonBackgroundColor: "rgb(150,0,0, 0.5)",
+  DeleteButtonBorderColor: "rgb(150,0,0, 0.5)",
 }
 
 export const LightTheme = {
@@ -41,5 +43,7 @@ export const LightTheme = {
   SaveButtonBackgroundColor: "rgb(0,175,0, 0.5)",
   SaveButtonBorderColor: "rgb(0,175,0, 0.5)",
   ErrorColor : "red",
+  DeleteButtonBackgroundColor: "rgb(175,0,0, 0.5)",
+  DeleteButtonBorderColor: "rgb(175,0,0, 0.5)",
 
 }
