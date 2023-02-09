@@ -42,10 +42,10 @@ export const LightTheme = {
   asideBackgroundColor : "#d3ccc7",
   textColor : "black",
   borderBottom : "black",
-  SaveButtonBackgroundColor: "rgb(0,175,0, 0.5)",
-  SaveButtonBorderColor: "rgb(0,175,0, 0.5)",
+  SaveButtonBackgroundColor: "rgb(0,175,0, 0.8)",
+  SaveButtonBorderColor: "rgb(0,175,0, 0.8)",
   ErrorColor : "red",
-  DeleteButtonBackgroundColor: "rgb(175,0,0, 0.5)",
-  DeleteButtonBorderColor: "rgb(175,0,0, 0.5)",
+  DeleteButtonBackgroundColor: "rgb(255,0,0, 0.8)",
+  DeleteButtonBorderColor: "rgb(255,0,0, 0.8)",
 
 }

@@ -44,7 +44,7 @@ color: ${({theme}) => theme.textColor};
 padding: ${INPUT_PADDING}px;
 margin: 20px;
 border: ${({theme}) => theme.SaveButtonBorderColor};
-border-radius: 15px;
+border-radius: 5px;
 font-size: 20px;
 `;
 
@@ -103,6 +103,6 @@ color: ${({theme}) => theme.textColor};
 padding: ${INPUT_PADDING}px;
 margin: 20px;
 border: ${({theme}) => theme.DeleteButtonBorderColor};
-border-radius: 15px;
+border-radius: 5px;
 font-size: 20px;
 `;
