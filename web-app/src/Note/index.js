@@ -40,6 +40,7 @@ const Note = ({onSave, onDelete}) => {
         "Content-Type" : "application/json"
       }
     });
+
     if(response.ok){
       setGetStatus("SAVED");
       onSave(note);
