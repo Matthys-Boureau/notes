@@ -32,3 +32,8 @@ export const LoaderWrapper = styled.div`
 height: 60px;
 ${CENTERED}
 `;
+
+export const FullHeightAndWidthCentered = styled.div`
+height: 100%;
+${CENTERED};
+`;
