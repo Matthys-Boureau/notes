@@ -15,6 +15,7 @@ export const Side = styled.aside`
   left: 0;
   bottom: 0;
   background-color: ${({theme}) => theme.asideBackgroundColor};
+  overflow: auto;
 `;
 
 export const Main = styled.main`

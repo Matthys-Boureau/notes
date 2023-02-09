@@ -30,11 +30,11 @@ export const DarkTheme = {
   asideBackgroundColor : "#1d2327",
   textColor : "white",
   borderBottom : "white",
-  SaveButtonBackgroundColor: "rgb(0,150,0, 0.5)",
-  SaveButtonBorderColor: "rgb(0,150,0, 0.5)",
+  SaveButtonBackgroundColor: "rgb(0,150,0, 0.8)",
+  SaveButtonBorderColor: "rgb(0,150,0, 0.8)",
   ErrorColor : "red",
-  DeleteButtonBackgroundColor: "rgb(150,0,0, 0.5)",
-  DeleteButtonBorderColor: "rgb(150,0,0, 0.5)",
+  DeleteButtonBackgroundColor: "rgb(220,0,0, 0.8)",
+  DeleteButtonBorderColor: "rgb(220,0,0, 0.8)",
 }
 
 export const LightTheme = {

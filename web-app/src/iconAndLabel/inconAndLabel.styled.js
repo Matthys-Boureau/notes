@@ -39,5 +39,4 @@ width: 50%;
 export const FLEX = styled.div`
 display: flex;
 flex-direction: row;
-
 `;
