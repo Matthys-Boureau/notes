@@ -22,8 +22,8 @@ const Note = () => {
 
   return(
     <Form>
-      <Title type='text' value={note ? note.title : ""}/>
-      <Content readOnly value={note ? note.content : ""}></Content>
+      <Title type='text' defaultValue={note ? note.title : ""}/>
+      <Content defaultValue={note ? note.content : ""}></Content>
       <button>Enregistrer</button>
     </Form>
   );
