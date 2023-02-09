@@ -2,10 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage } from "./Note.styled";
 import {TbChecks} from "react-icons/tb"
-import {FiLoader} from "react-icons/fi"
 import { IconAndLabel } from "../iconAndLabel/inconAndLabel.styled";
 
-const Note = () => {
+const Note = ({onSave}) => {
   const { id } = useParams();
 
   const [note, setNote] = useState(null);
@@ -32,6 +31,8 @@ const Note = () => {
     });
     if(response.ok){
       setStatus("SAVED");
+      onSave(note);
+      // update notes to resfresh title in side bar
     }else{
       setStatus("ERROR");
     }

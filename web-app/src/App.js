@@ -1,4 +1,4 @@
-import { Side, Main, MessageNoNoteSelected } from "./App.Style";
+import { Side, Main, MessageNoNoteSelected, LoaderWrapper } from "./App.Style";
 import { LightTheme, DarkTheme, GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
@@ -8,13 +8,16 @@ import {Routes} from "react-router-dom";
 import Note from "./Note";
 import LinkToNote from "./LinkToNote";
 import { Route } from "react-router-dom";
+import { Loader } from "./Note/Note.styled";
 
 function App() {
   const [notes, setNotes] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fecthNote = async () => {
     const response = await fetch("/notes");
     const notes = await response.json();
+    setIsLoading(false);
     setNotes(notes);
   };
 
@@ -22,11 +25,22 @@ function App() {
     fecthNote();
   }, []);
 
+
+  const updateNote = (noteToUpdate) => {
+    setNotes(notes.map(_note => (_note.id === noteToUpdate.id ? noteToUpdate : _note)));
+    
+  }
+
   return (
     <>
-      <ThemeProvider theme={DarkTheme}>
+      <ThemeProvider theme={LightTheme}>
         <GlobalStyle />
         <Side>
+          {isLoading && 
+          <LoaderWrapper>
+          <Loader />
+          </LoaderWrapper>
+          }
           {notes && (
             <NoteList>
               {notes.map((note) => (
@@ -41,9 +55,9 @@ function App() {
           <Routes>
             <Route path="/" element={
             <MessageNoNoteSelected>
-              Sélectionner une note pour l'éditer
+             { !isLoading && " Sélectionner une note pour l'éditer"}
             </MessageNoNoteSelected>}/>
-            <Route path="/notes/:id" element={<Note />}/>
+            <Route path="/notes/:id" element={<Note onSave={updateNote} />}/>
           </Routes>
         </Main>
       </ThemeProvider>

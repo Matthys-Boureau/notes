@@ -1,5 +1,11 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
+const CENTERED = css`
+display: flex;
+justify-content: center;
+align-items: center;
+`;
 const SIDE_WIDTH = 240;
 
 export const Side = styled.aside`
@@ -18,8 +24,11 @@ export const Main = styled.main`
 
 export const MessageNoNoteSelected = styled.div`
 height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+${CENTERED};
 font-size: 40px;
+`;
+
+export const LoaderWrapper = styled.div`
+height: 60px;
+${CENTERED}
 `;
