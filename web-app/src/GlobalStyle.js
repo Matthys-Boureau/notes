@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import { MdDarkMode } from "react-icons/md";
 
 export const GlobalStyle = createGlobalStyle`
 *{

@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage } from "./Note.styled";
+import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage} from "./Note.styled";
 import {TbChecks} from "react-icons/tb"
 import { IconAndLabel } from "../iconAndLabel/inconAndLabel.styled";
 import {FullHeightAndWidthCentered} from "../App.Style";
 import { DeleteButton } from "./Note.styled";
 
-const Note = ({onSave}) => {
+const Note = ({onSave, onDelete}) => {
   const { id } = useParams();
 
   const [note, setNote] = useState(null);
@@ -56,6 +56,10 @@ const Note = ({onSave}) => {
         "Content-Type" : "application/json"
       }
     });
+    if(response.ok){
+      setGetStatus("DELETE");
+      onDelete(note.id);
+    }
   }
 
   if(getStatus === "LOADING") {
@@ -72,6 +76,14 @@ const Note = ({onSave}) => {
         404 : La note {id} n'existe pas !
       </FullHeightAndWidthCentered>
     );
+  }
+
+  if (getStatus === "DELETE") {
+    return(
+      <FullHeightAndWidthCentered>
+        La note {id} à été supprimé avec succès
+      </FullHeightAndWidthCentered>
+    )
   }
 
 
@@ -115,7 +127,7 @@ const Note = ({onSave}) => {
         ) : getStatus === "LOADING" ? (
           <Loader/>
         ) : null}
-        <DeleteButton
+        <DeleteButton type="button"
         onClick={(event) =>{
           deleteNote();
         }}
@@ -123,8 +135,6 @@ const Note = ({onSave}) => {
           DELETE
         </DeleteButton>
       </SaveAndStatus>
-
-      
     </Form>
   );
 };

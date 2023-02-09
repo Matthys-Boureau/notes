@@ -4,7 +4,6 @@ import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
-import {} from "react-icons";
 
 import Note from "./Note";
 import LinkToNote from "./LinkToNote";
@@ -27,9 +26,14 @@ function App() {
   }, []);
 
 
+  const deleteNote = (id) => {
+    console.log(notes.filter(_note => (_note.id !== id)));
+    console.log(id)
+    setNotes(notes.filter(_note => _note.id !== id));
+  }
+
   const updateNote = (noteToUpdate) => {
     setNotes(notes.map(_note => (_note.id === noteToUpdate.id ? noteToUpdate : _note)));
-    
   }
 
   return (
@@ -42,7 +46,6 @@ function App() {
           <Loader />
           </LoaderWrapper>
           }
-
           {notes && (
             <NoteList>
               {notes.map((note) => (
@@ -59,7 +62,7 @@ function App() {
             <MessageNoNoteSelected>
              { !isLoading && " Sélectionner une note pour l'éditer"}
             </MessageNoNoteSelected>}/>
-            <Route path="/notes/:id" element={<Note onSave={updateNote} />}/>
+            <Route path="/notes/:id" element={<Note onSave={updateNote} onDelete={deleteNote}/>}/>
           </Routes>
         </Main>
       </ThemeProvider>
