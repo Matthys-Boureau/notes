@@ -30,6 +30,7 @@ export const DarkTheme = {
   borderBottom : "white",
   SaveButtonBackgroundColor: "rgb(0,150,0, 0.5)",
   SaveButtonBorderColor: "rgb(0,150,0, 0.5)",
+  ErrorColor : "red",
 }
 
 export const LightTheme = {
@@ -39,4 +40,6 @@ export const LightTheme = {
   borderBottom : "black",
   SaveButtonBackgroundColor: "rgb(0,175,0, 0.5)",
   SaveButtonBorderColor: "rgb(0,175,0, 0.5)",
+  ErrorColor : "red",
+
 }

@@ -5,5 +5,5 @@ display: inline-flex;
 align-items: center;
 gap: 4px;
 color: ${({theme})=> theme.SaveButtonBackgroundColor};
-font-size: 20px;
+font-size: 30px;
 `;

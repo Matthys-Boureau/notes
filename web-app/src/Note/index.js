@@ -1,14 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import { Form, Title, Content, ButtonSave, SaveAndStatus } from "./Note.styled";
+import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage } from "./Note.styled";
 import {TbChecks} from "react-icons/tb"
+import {FiLoader} from "react-icons/fi"
 import { IconAndLabel } from "../iconAndLabel/inconAndLabel.styled";
 
 const Note = () => {
   const { id } = useParams();
 
   const [note, setNote] = useState(null);
-  const [isSaved, setIsSaved] = useState(false);
+  const [status, setStatus] = useState("IDLE");
 
   const fecthNote = useCallback(async () => {
     const response = await fetch(`/notes/${id}`);
@@ -21,6 +22,7 @@ const Note = () => {
   }, [id, fecthNote]);
 
   const saveNote = async () => {
+    setStatus("LOADING")
     const response = await fetch(`/notes/${note.id}`, {
       method: "PUT",
       body: JSON.stringify(note),
@@ -29,11 +31,13 @@ const Note = () => {
       }
     });
     if(response.ok){
-      setIsSaved(true);
+      setStatus("SAVED");
     }else{
-      console.log('Erreur lors de la mise à jour de la note.');
+      setStatus("ERROR");
     }
   };
+
+
 
   return (
     <Form
@@ -46,7 +50,7 @@ const Note = () => {
         type="text"
         value={note ? note.title : ""}
         onChange={(event) => {
-          setIsSaved(false);
+          setStatus("IDLE");
           setNote({
             ...note,
             title: event.target.value,
@@ -56,7 +60,7 @@ const Note = () => {
       <Content
         value={note ? note.content : ""}
         onChange={(event) => {
-          setIsSaved(false);
+          setStatus("IDLE");
           setNote({
             ...note,
             content: event.target.value,
@@ -66,12 +70,15 @@ const Note = () => {
       <SaveAndStatus>
         <ButtonSave>SAVE</ButtonSave>
         {
-        isSaved &&
+        status === "SAVED" ?(
         <IconAndLabel>
         <TbChecks />
-        Enregistré
         </IconAndLabel>
-        }
+        ): status === "ERROR" ?(
+          <ErrorMessage>Erreur lors de la sauvegarde</ErrorMessage>
+        ) : status === "LOADING" ? (
+          <Loader/>
+        ) : null}
       </SaveAndStatus>
     </Form>
   );
