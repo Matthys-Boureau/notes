@@ -1,4 +1,4 @@
-import { Side, Main } from "./App.Style";
+import { Side, Main, MessageNoNoteSelected } from "./App.Style";
 import { LightTheme, DarkTheme, GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
@@ -39,8 +39,11 @@ function App() {
         </Side>
         <Main>
           <Routes>
-            <Route path="/" element={<div>Sélectionner note pour l'éditer</div>}/>
-            <Route path="/notes/:id" element={<Note />}></Route>
+            <Route path="/" element={
+            <MessageNoNoteSelected>
+              Sélectionner une note pour l'éditer
+            </MessageNoNoteSelected>}/>
+            <Route path="/notes/:id" element={<Note />}/>
           </Routes>
         </Main>
       </ThemeProvider>

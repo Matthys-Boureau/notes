@@ -5,6 +5,11 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
+*:focus{
+  outline: none;
+  box-shadow: inset 0px 0px 0px 2px ${({theme}) => theme.textColor};
+}
+
 body {
   margin: 0;
   color: ${({theme}) => theme.textColor};
@@ -22,10 +27,16 @@ export const DarkTheme = {
   mainBackgroundColor : "#2c3338",
   asideBackgroundColor : "#1d2327",
   textColor : "white",
+  borderBottom : "white",
+  SaveButtonBackgroundColor: "rgb(0,150,0, 0.5)",
+  SaveButtonBorderColor: "rgb(0,150,0, 0.5)",
 }
 
 export const LightTheme = {
-  mainBackgroundColor : "#d3ccc7",
-  asideBackgroundColor : "#e2dcd8",
+  mainBackgroundColor : "#e2dcd8",
+  asideBackgroundColor : "#d3ccc7",
   textColor : "black",
+  borderBottom : "black",
+  SaveButtonBackgroundColor: "rgb(0,175,0, 0.5)",
+  SaveButtonBorderColor: "rgb(0,175,0, 0.5)",
 }
