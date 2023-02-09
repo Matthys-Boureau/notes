@@ -4,9 +4,8 @@ import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
-import {GrAddCircle} from "react-icons/gr";
 import {AddNote, DarkLightMode, FLEX} from "./iconAndLabel/inconAndLabel.styled";
-import {MdLightMode} from "react-icons/md"
+import {MdLightMode, MdAddCircle} from "react-icons/md"
 
 
 import Note from "./Note";
@@ -77,7 +76,7 @@ function App() {
             <AddNote onClick={(event) => {
               newNote();
             }}>
-              <GrAddCircle />
+              <MdAddCircle/>
             </AddNote>
           </FLEX>
           {notes && (
