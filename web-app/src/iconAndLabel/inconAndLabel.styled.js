@@ -87,9 +87,11 @@ border-radius: 100vmax;
 padding-left: 10px;
 background-color: ${({theme}) => theme.asideBackgroundColor};
 border: 2px solid ${({theme}) => theme.textColor};
+color: ${({theme}) => theme.textColor};
 `;
 
 export const SCROLL = styled.div`
-overflow: auto;
+overflow: scroll;
+
 margin-top: 80px;
 `;

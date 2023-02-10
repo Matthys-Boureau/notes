@@ -10,7 +10,7 @@ export const Link = styled(_Link)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: inherit;
+  color: ${({theme}) => theme.textColor};
   background-color: ${({theme}) => theme.asideBackgroundColor};
 
 

@@ -56,6 +56,7 @@ background: none;
 font-size: 20px;
 width: 100px;
 height: 50px;
+color: ${({theme})=> theme.textColor};
 
 &:hover{
   background-color: ${({theme}) => theme.HoverButton};
