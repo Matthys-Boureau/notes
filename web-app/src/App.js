@@ -1,19 +1,22 @@
-import { Side, Main, MessageNoNoteSelected, LoaderWrapper } from "./App.Style";
-import { LightTheme, DarkTheme, GlobalStyle } from "./GlobalStyle";
-import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
-import { NoteList } from "./NoteList/NoteList.styled";
-import {Routes} from "react-router-dom";
-import {AddNote, DarkLightMode, MENU, SCROLL, MENU_ICONS, SEARCHBAR, DIV_SEARCHBAR} from "./iconAndLabel/inconAndLabel.styled";
-import { BsPlus } from "react-icons/bs";
-import {HiMoon, HiSun} from 'react-icons/hi';
-import {FiSearch} from "react-icons/fi"
 
+import { Side, Main, MessageNoNoteSelected, LoaderWrapper} from "./App.Style";
+import { LightTheme, DarkTheme, GlobalStyle } from "./GlobalStyle";
+
+import { ThemeProvider } from "styled-components";
+import { NoteList } from "./NoteList/NoteList.styled";
+import {AddNote, DarkLightMode, MENU, SCROLL, MENU_ICONS, SEARCHBAR, DIV_SEARCHBAR} from "./iconAndLabel/inconAndLabel.styled";
+import { Loader } from "./Note/Note.styled";
+
+import { Route } from "react-router-dom";
+import {Routes} from "react-router-dom";
+
+import {HiMoon, HiSun} from 'react-icons/hi';
+import { BsPlus } from "react-icons/bs";
+import {FiSearch} from "react-icons/fi"
 
 import Note from "./Note";
 import LinkToNote from "./LinkToNote";
-import { Route } from "react-router-dom";
-import { Loader } from "./Note/Note.styled";
 
 function App() {
   const [notes, setNotes] = useState(null);

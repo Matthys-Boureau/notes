@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage} from "./Note.styled";
 import {TbChecks} from "react-icons/tb"
 import {GiSaveArrow} from "react-icons/gi"
 import {MdDeleteForever} from "react-icons/md"
 import { IconAndLabel } from "../iconAndLabel/inconAndLabel.styled";
-import {FullHeightAndWidthCentered} from "../App.Style";
+import {ButtonRetour, FullHeightAndWidthCentered, TextSuppression} from "../App.Style";
 import { DeleteButton } from "./Note.styled";
 
 const Note = ({onSave, onDelete}) => {
@@ -81,10 +81,12 @@ const Note = ({onSave, onDelete}) => {
     );
   }
 
+
   if (getStatus === "DELETE") {
     return(
       <FullHeightAndWidthCentered>
-        La note {id} à été supprimé avec succès
+        <TextSuppression>La note {id} à été supprimé avec succès</TextSuppression>
+        <ButtonRetour>Retour</ButtonRetour>
       </FullHeightAndWidthCentered>
     )
   }

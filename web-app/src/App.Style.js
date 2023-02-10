@@ -39,5 +39,27 @@ ${CENTERED}
 
 export const FullHeightAndWidthCentered = styled.div`
 height: 100%;
+display: flex;
+flex-direction: column;
+gap: 20px;
 ${CENTERED};
+`;
+
+
+export const TextSuppression = styled.p`
+font-size: 30px;
+`;
+
+export const ButtonRetour = styled.button`
+border: none;
+background: none;
+font-size: 20px;
+width: 100px;
+height: 50px;
+
+&:hover{
+  background-color: ${({theme}) => theme.HoverButton};
+  border-radius: 15px;
+}
+
 `;
