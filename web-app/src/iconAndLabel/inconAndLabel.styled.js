@@ -14,8 +14,8 @@ align-items: center;
 justify-content: center;
 gap: 4px;
 color: ${({theme})=> theme.textColor};
-font-size: 25px;
-padding: 20px 0px;
+font-size: 30px;
+padding: 7px 0px;
 background-color: none;
 background: none;
 border: none;
@@ -28,23 +28,57 @@ align-items: center;
 justify-content: center;
 gap: 4px;
 color: ${({theme})=> theme.textColor};
-font-size: 25px;
-padding: 20px 0px;
+font-size: 29px;
+padding: 23px 0px;
 background-color: none;
 background: none;
 border: none;
 width: 50%;
 `;
 
+const SIDE_WIDTH = 240;
+
 export const MENU = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 justify-content: space-between;
 position: fixed;
 background-color: ${({theme}) => theme.asideBackgroundColor};
-width: 240px;
+width: ${SIDE_WIDTH}px;
 box-shadow: ${({theme}) => theme.BoxShadow};
-height: 75px;
+height: fit-content;
+`;
+
+export const MENU_ICONS = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: ${({theme}) => theme.asideBackgroundColor};
+width: ${SIDE_WIDTH}px;
+height: auto;
+`;
+
+
+export const DIV_SEARCHBAR = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 5px;
+width: ${SIDE_WIDTH}px;
+padding: 10px;
+border-top: ${({theme}) => theme.borderTop};
+`;
+
+
+export const SEARCHBAR = styled.input`
+display: flex;
+height: 40px;
+width: 200px;
+box-shadow: none;
+border-radius: 100vmax;
+padding-left: 10px;
+background-color: ${({theme}) => theme.asideBackgroundColor};
+border: 2px solid ${({theme}) => theme.textColor};
 `;
 
 export const SCROLL = styled.div`

@@ -9,7 +9,7 @@ align-items: center;
 const SIDE_WIDTH = 240;
 
 export const Side = styled.aside`
-position: fixed;
+  position: fixed;
   width: ${SIDE_WIDTH}px;
   top: 0;
   left: 0;
@@ -18,6 +18,7 @@ position: fixed;
   overflow: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const Main = styled.main`

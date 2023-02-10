@@ -4,9 +4,10 @@ import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
-import {AddNote, DarkLightMode, MENU, SCROLL} from "./iconAndLabel/inconAndLabel.styled";
+import {AddNote, DarkLightMode, MENU, SCROLL, MENU_ICONS, SEARCHBAR, DIV_SEARCHBAR} from "./iconAndLabel/inconAndLabel.styled";
 import { MdAddCircle} from "react-icons/md";
-import {WiMoonAltWaningCrescent6,WiMoonAltWaxingCrescent2} from 'react-icons/wi'
+import {WiMoonAltWaningCrescent6,WiMoonAltWaxingCrescent2} from 'react-icons/wi';
+import {FiSearch} from "react-icons/fi"
 
 
 import Note from "./Note";
@@ -32,7 +33,7 @@ function App() {
   const newNote = async () => {
     const response = await fetch(`/notes/`, {
       method: "POST",
-      body: JSON.stringify({title : "Nouvelle note"}),
+      body: JSON.stringify({title : 'Nouvelle Note'}),
       headers: {
         "Content-Type": "application/json",
       },
@@ -60,6 +61,26 @@ function App() {
     }
   }
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const doesNotMatchSearchTerm = (note) => {
+    if(note.title) {
+      if(note.title.includes(searchTerm)) {
+        return true;
+      } else if(note.content) {
+        if(note.content.includes(searchTerm)) {
+          return true;
+        }
+      }
+    } else if(note.content) {
+      if(note.content.includes(searchTerm)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   return (
     <>
       <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
@@ -71,22 +92,24 @@ function App() {
           </LoaderWrapper>
           }
           <MENU>
-            <DarkLightMode onClick={toggleTheme}>
-              {
-                theme === 'light' ? <WiMoonAltWaningCrescent6/> : 
-                <WiMoonAltWaxingCrescent2 />
-              }
-            </DarkLightMode>
-            <AddNote onClick={(event) => {
-              newNote();
-            }}>
-              <MdAddCircle/>
-            </AddNote>
+            <MENU_ICONS>
+              <DarkLightMode onClick={toggleTheme}>
+                {
+                  theme === 'light' ? <WiMoonAltWaningCrescent6/> : 
+                  <WiMoonAltWaxingCrescent2 />
+                }
+              </DarkLightMode>
+              <AddNote onClick={(event) => {
+                newNote();
+              }}>
+                <MdAddCircle/>
+              </AddNote>
+            </MENU_ICONS>
           </MENU>
           <SCROLL>
           {notes && (
             <NoteList>
-              {notes.map((note) => (
+              {notes.filter((note) => doesNotMatchSearchTerm(note)).map((note) => (
                 <li key={note.id}>
                   <LinkToNote id={note.id} title={note.title} />
                 </li>
@@ -94,6 +117,10 @@ function App() {
             </NoteList>
           )}
           </SCROLL>
+          <DIV_SEARCHBAR>
+            <SEARCHBAR type={"search"} onChange={(e) => setSearchTerm(e.target.value)}/>
+            <FiSearch/>
+          </DIV_SEARCHBAR>
         </Side>
         <Main>
           <Routes>

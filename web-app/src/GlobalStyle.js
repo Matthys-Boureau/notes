@@ -35,7 +35,8 @@ export const DarkTheme = {
   ErrorColor : "red",
   DeleteButtonBackgroundColor: "rgb(220,0,0, 0.8)",
   DeleteButtonBorderColor: "rgb(220,0,0, 0.8)",
-  BoxShadow : "rgba(255, 255, 255, 0.05) 0px 5px 1px 0px"
+  BoxShadow : "rgba(255, 255, 255, 0.05) 0px 5px 1px 0px",
+  borderTop : "5px solid rgba(255, 255, 255, 0.05) "
 }
 
 export const LightTheme = {
@@ -48,5 +49,6 @@ export const LightTheme = {
   ErrorColor : "red",
   DeleteButtonBackgroundColor: "rgb(255,0,0, 0.8)",
   DeleteButtonBorderColor: "rgb(255,0,0, 0.8)",
-  BoxShadow : "rgba(0, 0, 0, 0.05) 0px 5px 1px 0px"
+  BoxShadow : "rgba(0, 0, 0, 0.05) 0px 5px 1px 0px",
+  borderTop : "5px solid rgba(0, 0, 0, 0.05)"
 }
