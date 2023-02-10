@@ -19,7 +19,7 @@ const Note = ({onSave, onDelete}) => {
   const retour = () => {
     navigate('/')
   }
-  
+
   const fecthNote = useCallback(async () => {
     setGetStatus("LOADING");
     const response = await fetch(`/notes/${id}`);
@@ -91,7 +91,7 @@ const Note = ({onSave, onDelete}) => {
   if (getStatus === "DELETE") {
     return(
       <FullHeightAndWidthCentered>
-        <TextSuppression>La note {id} à été supprimé avec succès</TextSuppression>
+        <TextSuppression>{note.title} à été supprimé avec succès</TextSuppression>
         <ButtonRetour onClick={retour}>
           Retour
         </ButtonRetour>
