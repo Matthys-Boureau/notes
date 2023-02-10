@@ -34,6 +34,7 @@ background-color: none;
 background: none;
 border: none;
 width: 50%;
+transition: opacity 500ms ease-in;
 `;
 
 export const FLEX = styled.div`

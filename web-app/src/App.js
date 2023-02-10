@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
 import {AddNote, DarkLightMode, FLEX} from "./iconAndLabel/inconAndLabel.styled";
-import {MdLightMode, MdAddCircle} from "react-icons/md"
+import { MdAddCircle} from "react-icons/md";
+import {WiMoonAltWaningCrescent6,WiMoonAltWaxingCrescent2} from 'react-icons/wi'
 
 
 import Note from "./Note";
@@ -71,7 +72,10 @@ function App() {
           }
           <FLEX>
             <DarkLightMode onClick={toggleTheme}>
-              <MdLightMode />
+              {
+                theme === 'light' ? <WiMoonAltWaningCrescent6/> : 
+                <WiMoonAltWaxingCrescent2 />
+              }
             </DarkLightMode>
             <AddNote onClick={(event) => {
               newNote();

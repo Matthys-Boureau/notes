@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage} from "./Note.styled";
 import {TbChecks} from "react-icons/tb"
+import {GiSaveArrow} from "react-icons/gi"
+import {MdDeleteForever} from "react-icons/md"
 import { IconAndLabel } from "../iconAndLabel/inconAndLabel.styled";
 import {FullHeightAndWidthCentered} from "../App.Style";
 import { DeleteButton } from "./Note.styled";
@@ -117,7 +119,9 @@ const Note = ({onSave, onDelete}) => {
         }}
       />
       <SaveAndStatus>
-        <ButtonSave>SAVE</ButtonSave>
+        <ButtonSave>
+          <GiSaveArrow />
+        </ButtonSave>
         {
         getStatus === "SAVED" ?(
         <IconAndLabel>
@@ -133,7 +137,7 @@ const Note = ({onSave, onDelete}) => {
           deleteNote();
         }}
         >
-          DELETE
+          <MdDeleteForever />
         </DeleteButton>
       </SaveAndStatus>
     </Form>

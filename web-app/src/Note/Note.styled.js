@@ -33,7 +33,7 @@ resize: none;
 `;
 
 export const ButtonSave = styled.button`
-width: 100px;
+width: 50px;
 height: 50px;
 display: flex;
 justify-content: center;
@@ -44,7 +44,7 @@ color: ${({theme}) => theme.textColor};
 padding: ${INPUT_PADDING}px;
 margin: 20px;
 border: ${({theme}) => theme.SaveButtonBorderColor};
-border-radius: 5px;
+border-radius: 100vmax;
 font-size: 20px;
 `;
 
@@ -92,7 +92,7 @@ export const ErrorMessage = styled.div`
 `;
 
 export const DeleteButton = styled.button`
-width: 100px;
+width: 50px;
 height: 50px;
 display: flex;
 justify-content: center;
@@ -103,6 +103,6 @@ color: ${({theme}) => theme.textColor};
 padding: ${INPUT_PADDING}px;
 margin: 20px;
 border: ${({theme}) => theme.DeleteButtonBorderColor};
-border-radius: 5px;
+border-radius: 100vmax;
 font-size: 20px;
 `;
