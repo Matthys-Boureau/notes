@@ -49,5 +49,5 @@ height: 75px;
 
 export const SCROLL = styled.div`
 overflow: auto;
-margin-top: 80px ;
+margin-top: 80px;
 `;
