@@ -62,5 +62,4 @@ color: ${({theme})=> theme.textColor};
   background-color: ${({theme}) => theme.HoverButton};
   border-radius: 15px;
 }
-
 `;

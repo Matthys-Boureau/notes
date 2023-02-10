@@ -35,7 +35,7 @@ function App() {
   const newNote = async () => {
     const response = await fetch(`/notes/`, {
       method: "POST",
-      body: JSON.stringify({title : 'Nouvelle Note'}),
+      body: JSON.stringify({title : 'Note'}),
       headers: {
         "Content-Type": "application/json",
       },
@@ -54,12 +54,12 @@ function App() {
     setNotes(notes.map(_note => (_note.id === noteToUpdate.id ? noteToUpdate : _note)));
   }
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
+    if (theme === 'dark') {
       setTheme('light');
+    } else {
+      setTheme('dark');
     }
   }
 
@@ -86,7 +86,7 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
+      <ThemeProvider theme={theme === 'dark' ? DarkTheme : LightTheme}>
         <GlobalStyle />
         <Side>
           {isLoading && 

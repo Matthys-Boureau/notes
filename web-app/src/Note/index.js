@@ -125,6 +125,7 @@ const Note = ({onSave, onDelete}) => {
             ...note,
             content: event.target.value,
           });
+
         }}
       />
       <SaveAndStatus>
