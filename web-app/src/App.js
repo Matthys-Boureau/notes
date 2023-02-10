@@ -8,8 +8,7 @@ import { NoteList } from "./NoteList/NoteList.styled";
 import {AddNote, DarkLightMode, MENU, SCROLL, MENU_ICONS, SEARCHBAR, DIV_SEARCHBAR} from "./iconAndLabel/inconAndLabel.styled";
 import { Loader } from "./Note/Note.styled";
 
-import { Route } from "react-router-dom";
-import {Routes} from "react-router-dom";
+import { Route , Routes} from "react-router-dom";
 
 import {HiMoon, HiSun} from 'react-icons/hi';
 import { BsPlus } from "react-icons/bs";
@@ -83,6 +82,7 @@ function App() {
 
     return false;
   }
+
 
   return (
     <>

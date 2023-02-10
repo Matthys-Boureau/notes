@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import {useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { Form, Title, Content, ButtonSave, SaveAndStatus, Loader, ErrorMessage} from "./Note.styled";
 import {TbChecks} from "react-icons/tb"
 import {GiSaveArrow} from "react-icons/gi"
@@ -11,9 +11,15 @@ import { DeleteButton } from "./Note.styled";
 const Note = ({onSave, onDelete}) => {
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const [note, setNote] = useState(null);
   const [getStatus, setGetStatus] = useState("IDLE");
 
+  const retour = () => {
+    navigate('/')
+  }
+  
   const fecthNote = useCallback(async () => {
     setGetStatus("LOADING");
     const response = await fetch(`/notes/${id}`);
@@ -86,11 +92,12 @@ const Note = ({onSave, onDelete}) => {
     return(
       <FullHeightAndWidthCentered>
         <TextSuppression>La note {id} à été supprimé avec succès</TextSuppression>
-        <ButtonRetour>Retour</ButtonRetour>
+        <ButtonRetour onClick={retour}>
+          Retour
+        </ButtonRetour>
       </FullHeightAndWidthCentered>
     )
   }
-
 
   return (
     <Form
