@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
 import {AddNote, DarkLightMode, MENU, SCROLL, MENU_ICONS, SEARCHBAR, DIV_SEARCHBAR} from "./iconAndLabel/inconAndLabel.styled";
-import { MdAddCircle} from "react-icons/md";
-import {WiMoonAltWaningCrescent6,WiMoonAltWaxingCrescent2} from 'react-icons/wi';
+import { BsPlus } from "react-icons/bs";
+import {HiMoon, HiSun} from 'react-icons/hi';
 import {FiSearch} from "react-icons/fi"
 
 
@@ -95,14 +95,14 @@ function App() {
             <MENU_ICONS>
               <DarkLightMode onClick={toggleTheme}>
                 {
-                  theme === 'light' ? <WiMoonAltWaningCrescent6/> : 
-                  <WiMoonAltWaxingCrescent2 />
+                  theme === 'light' ? <HiMoon/> : 
+                  <HiSun />
                 }
               </DarkLightMode>
               <AddNote onClick={(event) => {
                 newNote();
               }}>
-                <MdAddCircle/>
+                <BsPlus/>
               </AddNote>
             </MENU_ICONS>
           </MENU>

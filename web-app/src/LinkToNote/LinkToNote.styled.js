@@ -15,6 +15,6 @@ export const Link = styled(_Link)`
 
 
   &:hover{
-    filter:brightness(1.4);
+    background-color: ${({theme}) => theme.HoverButton};
   }
 `;

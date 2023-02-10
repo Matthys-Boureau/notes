@@ -15,11 +15,18 @@ justify-content: center;
 gap: 4px;
 color: ${({theme})=> theme.textColor};
 font-size: 30px;
+width: 50px;
+height: fit-content;
 padding: 7px 0px;
 background-color: none;
 background: none;
 border: none;
-width: 50%;
+
+  &:hover{
+    background-color: ${({theme}) => theme.HoverButton};
+    border-radius: 10px;
+    
+  }
 `;
 
 export const DarkLightMode =styled.button`
@@ -33,7 +40,6 @@ padding: 23px 0px;
 background-color: none;
 background: none;
 border: none;
-width: 50%;
 `;
 
 const SIDE_WIDTH = 240;
@@ -52,7 +58,9 @@ height: fit-content;
 export const MENU_ICONS = styled.div`
 display: flex;
 flex-direction: row;
-justify-content: space-between;
+align-items: center;
+align-content: center;
+justify-content: space-around;
 background-color: ${({theme}) => theme.asideBackgroundColor};
 width: ${SIDE_WIDTH}px;
 height: auto;
