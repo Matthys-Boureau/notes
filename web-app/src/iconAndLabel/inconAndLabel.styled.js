@@ -34,10 +34,20 @@ background-color: none;
 background: none;
 border: none;
 width: 50%;
-transition: opacity 500ms ease-in;
 `;
 
 export const FLEX = styled.div`
 display: flex;
 flex-direction: row;
+justify-content: space-between;
+position: fixed;
+background-color: ${({theme}) => theme.asideBackgroundColor};
+width: 240px;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 1px 0px;
+height: 75px;
+`;
+
+export const SCROLL = styled.div`
+overflow: auto;
+margin-top: 80px ;
 `;

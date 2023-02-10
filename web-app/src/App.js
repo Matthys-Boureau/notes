@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import { NoteList } from "./NoteList/NoteList.styled";
 import {Routes} from "react-router-dom";
-import {AddNote, DarkLightMode, FLEX} from "./iconAndLabel/inconAndLabel.styled";
+import {AddNote, DarkLightMode, FLEX, SCROLL} from "./iconAndLabel/inconAndLabel.styled";
 import { MdAddCircle} from "react-icons/md";
 import {WiMoonAltWaningCrescent6,WiMoonAltWaxingCrescent2} from 'react-icons/wi'
 
@@ -83,6 +83,7 @@ function App() {
               <MdAddCircle/>
             </AddNote>
           </FLEX>
+          <SCROLL>
           {notes && (
             <NoteList>
               {notes.map((note) => (
@@ -92,6 +93,7 @@ function App() {
               ))}
             </NoteList>
           )}
+          </SCROLL>
         </Side>
         <Main>
           <Routes>

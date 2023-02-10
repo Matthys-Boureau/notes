@@ -9,13 +9,15 @@ align-items: center;
 const SIDE_WIDTH = 240;
 
 export const Side = styled.aside`
-  position: fixed;
+position: fixed;
   width: ${SIDE_WIDTH}px;
   top: 0;
   left: 0;
   bottom: 0;
   background-color: ${({theme}) => theme.asideBackgroundColor};
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Main = styled.main`
